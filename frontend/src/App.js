@@ -6,16 +6,22 @@ import { Routes, Route } from 'react-router-dom';
 import Frontpage from './pages/Frontpage'
 import Loginform from './pages/Loginform';
 import Registerform from './pages/Registerform';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 
 function App() {
   const [username, setUsername] = useState('');
   return (
-    <Routes>
-      <Route path="/" exact element={<Frontpage username={username} />} />
-      <Route path="/Login" element={<Loginform setUser={setUsername} />} />
-      <Route path="/Register" element={<Registerform />} /> 
-    </Routes>
+    <div>
+      <Navbar/>
+      <Routes>
+        <Route path="/" exact element={<Frontpage username={username} />} />
+        <Route path="/Login" element={<Loginform setUser={setUsername} />} />
+        <Route path="/Register" element={<Registerform />} /> 
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

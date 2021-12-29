@@ -13,7 +13,7 @@ const Registerform = () => {
 
         e.preventDefault()
 
-        await axios.post("http://localhost:8000/api/register",
+        await axios.post("http://localhost:8088/api/register",
             {
             name: username,
             email: email,
@@ -37,7 +37,7 @@ const Registerform = () => {
     
     return (
         <div className="form-box">
-            <Header />
+            <Header title=" Register"/>
             <form id= "registerForm" onSubmit={onSubmit}>
                 <input type="text" className="input-field" placeholder= "Username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 <input type="text" className="input-field" placeholder= "Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
