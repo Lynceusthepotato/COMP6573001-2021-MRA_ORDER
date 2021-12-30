@@ -33,7 +33,6 @@ body{
 .Frontpage{
   display: flex;
   position: relative;
-  justify-content: space-around;
   background-color:#CCC5B9;
   min-height: 50vh;
   min-width: 90%;
@@ -42,14 +41,40 @@ body{
 
 .Avatar {
   vertical-align: middle;
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
-.Left, .Right, .Top, .Bottom {
-  margin: 10%;
+
+/* .Right {
+  background-color:whitesmoke;
+  float: right;
 }
 
+.Left {
+  background-color:black;
+  float: left;
+} */
+
+.Left {
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 10%;
+  min-width: 15vh;
+}
+
+.Right {
+  width: 90%;
+}
+
+.Top, .Bottom {
+  margin-left: 50px;
+  margin-top: 60px;
+}
+
+.Bruh {
+  clear: both;
+}
 
 /* Footer */
 .fFooter {

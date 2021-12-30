@@ -26,7 +26,9 @@ const Registerform = () => {
             setIsRegister(isRegister => !isRegister)
             }
         }).catch(error => {
-            console.log(error, error.res)
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
         })
           
     }

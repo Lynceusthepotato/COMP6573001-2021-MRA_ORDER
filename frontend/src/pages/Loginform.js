@@ -19,16 +19,16 @@ const Loginform = ( {setUser} ) => {
             },
             { withCredentials: true }
         ).then(res => {
-            if (res.data.status === 'fail'){
-                alert("Your email and password is wrong :v")
-            } else {
-                setUser(res.data.name)
-                setIsLogin(isLogin => !isLogin)
-            }
+            setUser(res.data.name)
         }).catch(error => {
-            console.log(error, error.res)
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+            if (error.response.status === 401) {
+                alert(error.response.data.message);
+            }
         })
-          
+        setIsLogin(isLogin => !isLogin)
     }
 
     if (isLogin) {
