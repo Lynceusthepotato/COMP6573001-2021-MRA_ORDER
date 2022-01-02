@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,6 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::get('user', [AuthController::class, 'user']);
     Route::post('logout', [AuthController::class, 'logout']);
 });
+
+Route::post('updateInfo', [UserInfoController::class, 'updateInfo']);
+Route::any('userInfo/{user_id}', [UserInfoController::class, 'show']);

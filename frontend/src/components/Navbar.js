@@ -21,8 +21,8 @@ const Navbar = (  {name, setUser} ) => {
     if (name !== '') {
         menu = (
             <>
+                <button onClick={logout}> Click me to edit </button>
                 <Link to="/" className="HomeNav" onClick={logout}> Logout </Link>
-                {/* <button onClick={logout}> Click me to edit </button> */}
             </>
         )
     } else {

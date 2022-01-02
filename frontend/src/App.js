@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [username, setUsername] = useState('');
+  const [userId, setUserId] = useState('');
 
   useEffect(() => {
     (
@@ -19,7 +20,9 @@ function App() {
             await axios.get('http://localhost:8088/api/user', {
                 withCredentials: true
             }).then(res => {
+              setUserId(res.data.id);
               setUsername(res.data.name);
+              // console.log(res.data);
             }).catch(error => {
                 if (error.response) {
                   console.log(error.response.data);
@@ -33,13 +36,13 @@ function App() {
             })
         }
     )();
-  }, []);
+  }, [username]);
 
   return (
     <div>
       <Navbar name={username} setUser={setUsername}/>
       <Routes>
-        <Route path="/" exact element={<Frontpage username={username} />} />
+        <Route path="/" exact element={<Frontpage username={username} usid={userId} />} />
         <Route path="/Login" element={<Loginform setUser={setUsername} />} />
         <Route path="/Register" element={<Registerform />} /> 
       </Routes>
