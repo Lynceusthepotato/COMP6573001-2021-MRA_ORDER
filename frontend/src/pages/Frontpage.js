@@ -22,7 +22,8 @@ const Frontpage = ( {username, usid} ) => {
     useEffect( () => {
         getInfo();
 
-    }, [cloudinary_link, usid]);
+    }, [usid]);
+    
 
     const uploadImage = async (e) => {
         e.preventDefault();
@@ -42,9 +43,10 @@ const Frontpage = ( {username, usid} ) => {
             method: 'POST',
             body: formData
         }).then(res => res.json());
-
+        
         setImageSrc(data.secure_url);
-        setCloudinary_link(data.secure_url);
+        setCloudinary_link(data.secure_url); // still need to press it twice
+        console.log(imageSrc);
         console.log(cloudinary_link);
     }
 
