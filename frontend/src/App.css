@@ -1,42 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200&display=swap');
 
 *{
-  margin: 0;
+  /* margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; */
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-html{
-  height:100%;
-}
-
-body{
+html, body{
   overflow-x: hidden;
   transition: 0.5s;
   min-height: 100%;
+  min-width: 100%;
   background: #fff;
   background-attachment:fixed;
 }
 
+
 /* FrontPage */
+
 .Whole{
-  position: relative;
   display: flex;
+  position: relative;
   align-items: center;
-  justify-content: center;
-  min-height: 90vh;
+  min-height: 80vh;
   min-width: 100%;
   padding: 10%;
 }
 
-.Frontpage{
+.Frontpage {
   display: flex;
   position: relative;
+  justify-content: space-between;
   background-color:#CCC5B9;
-  min-height: 50vh;
-  min-width: 90%;
+  align-items: center;
   border-radius: 20px;
+  min-width: 80%;
+  min-height: 35vh;
 }
 
 .Avatar {
@@ -46,45 +46,14 @@ body{
   border-radius: 50%;
 }
 
-/* .Right {
-  background-color:whitesmoke;
-  float: right;
-}
-
 .Left {
-  background-color:black;
-  float: left;
-} */
-
-.Left {
-  margin-left: 50px;
-  margin-top: 50px;
-  width: 10%;
-  min-width: 15vh;
+  margin-left: 5%;
 }
 
 .Right {
-  width: 90%;
-}
-
-.Top, .Bottom {
-  margin-left: 50px;
-  margin-top: 60px;
+  margin-right: 5%;
 }
 
 .Bruh {
   clear: both;
-}
-
-/* Footer */
-.fFooter {
-  background-color: black;
-  height: 80px;
-  bottom: 0;
-}
-
-.foot{
-  line-height: 80px;
-  text-align: center;
-  color: white;
 }

@@ -8,6 +8,7 @@ const Frontpage = ( {username, usid} ) => {
     const [imageSrc, setImageSrc] = useState();
     const [uploadData, setUploadData] = useState();
     const [cloudinaryFolder, setCloudinaryFolder] = useState('forwes');
+    const [updet, setUpdet] = useState(false);
 
     const getInfo = async () => {
         console.log(usid);
@@ -15,6 +16,7 @@ const Frontpage = ( {username, usid} ) => {
             ).then(res => {
                 console.log(res);
                 setImageSrc(res.data.cloudinary_link);
+                setCloudinary_link(res.data.cloudinary_link);
                 setDescription(res.data.description);
             })
     }
@@ -22,7 +24,10 @@ const Frontpage = ( {username, usid} ) => {
     useEffect( () => {
         getInfo();
 
-    }, [usid]);
+        if(cloudinary_link != cloudinary_link){
+            setUpdet(true);
+        }
+    }, [usid, updet]);
     
 
     const uploadImage = async (e) => {
@@ -45,16 +50,16 @@ const Frontpage = ( {username, usid} ) => {
         }).then(res => res.json());
         
         setImageSrc(data.secure_url);
-        setCloudinary_link(data.secure_url); // still need to press it twice
-        console.log(imageSrc);
+        setCloudinary_link(data.secure_url); // still need to press it twice 
         console.log(cloudinary_link);
     }
 
     const updateDesc = async (e) => {
         e.preventDefault();
-
+        if (cloudinary_link === null)
+            uploadImage();
         await axios.post('http://localhost:8088/api/updateInfo', {
-            id: usid,
+            user_id: usid,
             description: description,
             cloudinary_link: cloudinary_link,
         }).then(res => {
@@ -63,6 +68,7 @@ const Frontpage = ( {username, usid} ) => {
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
+            updateDesc();
         })
     }
     
@@ -91,10 +97,6 @@ const Frontpage = ( {username, usid} ) => {
                             <p>
                                 <button>Upload Files</button>
                             </p>
-                        )}
-
-                        {uploadData && (
-                            <code><pre>{JSON.stringify(uploadData, null, 2)}</pre></code>
                         )}
                     </form>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserGalleryController;
 use App\Http\Controllers\UserInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,6 @@ Route::middleware('auth:sanctum')->group(function (){
 
 Route::post('updateInfo', [UserInfoController::class, 'updateInfo']);
 Route::any('userInfo/{user_id}', [UserInfoController::class, 'show']);
+
+Route::post('galleryInfo', [UserGalleryController::class, 'galleryInfo']);
+Route::any('galleryInfo/{user_id}', [UserGalleryController::class, 'show']);

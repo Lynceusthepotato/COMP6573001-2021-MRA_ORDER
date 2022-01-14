@@ -10,6 +10,7 @@ class user_information extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'description',
         'cloudinary_link',
     ];

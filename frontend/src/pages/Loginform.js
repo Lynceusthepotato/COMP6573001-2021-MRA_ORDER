@@ -20,6 +20,7 @@ const Loginform = ( {setUser} ) => {
             { withCredentials: true }
         ).then(res => {
             setUser(res.data.name)
+            setIsLogin(isLogin => !isLogin)
         }).catch(error => {
             console.log(error.response.data);
             console.log(error.response.status);
@@ -28,7 +29,6 @@ const Loginform = ( {setUser} ) => {
                 alert(error.response.data.message);
             }
         })
-        setIsLogin(isLogin => !isLogin)
     }
 
     if (isLogin) {

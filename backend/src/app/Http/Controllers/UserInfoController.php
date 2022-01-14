@@ -17,10 +17,12 @@ class UserInfoController extends Controller
             $user_id = $request -> input('user_id');
             $user_information = user_information::findOrFail($user_id);
 
-            $user_information -> description = $request-> input('description');
-            $user_information -> cloudinary_link = $request-> input('cloudinary_link');
+            if($user_information){
+                $user_information -> description = $request-> input('description');
+                $user_information -> cloudinary_link = $request-> input('cloudinary_link');
+                $user_information -> save();
+            }
 
-            $user_information -> save();
         }catch (ModelNotFoundException $e){
             return user_information::create([
                 'id' => $request-> input('id'),

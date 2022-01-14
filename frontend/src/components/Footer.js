@@ -1,4 +1,4 @@
-import Header from './Header'
+import "./Footer.css";
 
 const Footer = () => {
     return (

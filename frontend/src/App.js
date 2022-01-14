@@ -8,6 +8,7 @@ import Loginform from './pages/Loginform';
 import Registerform from './pages/Registerform';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Gallerypage from './pages/Gallerypage';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/" exact element={<Frontpage username={username} usid={userId} />} />
         <Route path="/Login" element={<Loginform setUser={setUsername} />} />
         <Route path="/Register" element={<Registerform />} /> 
+        <Route path="/Gallery" element={<Gallerypage usid={userId}/>} />
       </Routes>
       <Footer />
     </div>

@@ -22,6 +22,7 @@ const Navbar = (  {name, setUser} ) => {
         menu = (
             <>
                 <button onClick={logout}> Click me to edit </button>
+                <Link to='/Gallery' className='HomeNav'> My Gallery </Link>
                 <Link to="/" className="HomeNav" onClick={logout}> Logout </Link>
             </>
         )
