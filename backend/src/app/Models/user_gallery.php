@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class user_gallery extends Model
 {
+    public $table = "user_gallerys";
+    protected $primaryKey = 'Photo_Id';
     use HasFactory;
 
     protected $fillable = [

@@ -34,3 +34,4 @@ Route::any('userInfo/{user_id}', [UserInfoController::class, 'show']);
 
 Route::post('galleryInfo', [UserGalleryController::class, 'galleryInfo']);
 Route::any('galleryInfo/{user_id}', [UserGalleryController::class, 'show']);
+Route::any('galleryInfo/{user_id}/{Photo_Id}', [UserGalleryController::class, 'showEdit']);

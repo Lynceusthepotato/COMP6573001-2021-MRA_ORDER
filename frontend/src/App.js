@@ -9,11 +9,13 @@ import Registerform from './pages/Registerform';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Gallerypage from './pages/Gallerypage';
+import EditGallery from './pages/EditGallery';
 
 
 function App() {
   const [username, setUsername] = useState('');
   const [userId, setUserId] = useState('');
+  const [photoId, setPhotoId] = useState();
 
   useEffect(() => {
     (
@@ -46,7 +48,8 @@ function App() {
         <Route path="/" exact element={<Frontpage username={username} usid={userId} />} />
         <Route path="/Login" element={<Loginform setUser={setUsername} />} />
         <Route path="/Register" element={<Registerform />} /> 
-        <Route path="/Gallery" element={<Gallerypage usid={userId}/>} />
+        <Route path="/Gallery" element={<Gallerypage usid={userId} setPhotoId={setPhotoId} photoid={photoId}/>} />
+        <Route path="/EditGallery" element={<EditGallery usid={userId} photoId={photoId} />} />
       </Routes>
       <Footer />
     </div>
