@@ -76,3 +76,46 @@ html, body{
   min-width: 80%;
   min-height: 35vh;
 }
+
+/* login Register */
+
+.form-box{
+  width: 80%;
+  height: 60%;
+  position: relative;
+  margin: 30% auto;
+  background: #fff;
+  padding: 10%;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.input-field{
+  color: black;
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+.submit-btn{
+  color:white;
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: 10% 10%;
+  background: linear-gradient(to right, #53c1a9, #53c1a9);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+
+.regisLogin{
+  color: blue;
+}
