@@ -51,22 +51,25 @@ const EditGallery = ( {usid, photoId} ) => {
     const updateDesc = async (e) => {
         e.preventDefault();
 
-        if (cloudinary_link === null)
-            uploadImage();
-        await axios.post('http://localhost:8088/api/galleryInfo', {
+        if (cloudinary_link === null){
+            uploadImage(); 
+            alert("it seems that the image is not uploaded yet press upload files again");
+        } else {
+            await axios.post('http://localhost:8088/api/galleryInfo', {
             user_id: usid,
             Photo_Id: photoId,
             picture_name: photoName,
             picture_description: description,
             picture_link: cloudinary_link,
-        }).then(res => {
-            console.log(res);
-        }).catch(error => {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-            updateDesc();
-        })
+            }).then(res => {
+                console.log(res);
+            }).catch(error => {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+                updateDesc();
+            })
+        }
     }
 
     function handleOnChange(changeEvent) {

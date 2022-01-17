@@ -56,20 +56,23 @@ const Frontpage = ( {username, usid} ) => {
 
     const updateDesc = async (e) => {
         e.preventDefault();
-        if (cloudinary_link === null)
+        if (cloudinary_link === null){
             uploadImage();
-        await axios.post('http://localhost:8088/api/updateInfo', {
+            alert("it seems that the image is not uploaded yet press upload files again");
+        } else {
+            await axios.post('http://localhost:8088/api/updateInfo', {
             user_id: usid,
             description: description,
             cloudinary_link: cloudinary_link,
-        }).then(res => {
-            console.log(res);
-        }).catch(error => {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-            updateDesc();
-        })
+            }).then(res => {
+                console.log(res);
+            }).catch(error => {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+                updateDesc();
+            })
+        }
     }
     
     function handleOnChange(changeEvent) {
